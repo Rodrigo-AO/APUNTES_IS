@@ -1,0 +1,28 @@
+Fundamentos de Programacion#1234567#12.0#ANUAL#1
+Fundamentos de Programacion# 2050001# 12.0# ANUAL# 1
+Calculo Infinitesimal y Numerico# 2050002# 6.0# PRIMER_CUATRIMESTRE# 1
+Circuitos Electronicos Digitales# 2050003# 6.0# PRIMER_CUATRIMESTRE# 1
+Fundamentos Fisicos de la Informatica#2050004#6.0# PRIMER_CUATRIMESTRE# 1
+Introduccion a la Matematica Discreta#2050005#6.0# PRIMER_CUATRIMESTRE# 1
+Administracion de Empresas# 2050006# 6.0# SEGUNDO_CUATRIMESTRE# 1
+Algebra Lineal y Numerica# 2050007# 6.0# SEGUNDO_CUATRIMESTRE# 1
+Estadistica# 2050008# 6.0# SEGUNDO_CUATRIMESTRE# 1
+Estructura de Computadores# 2050009# 6.0# SEGUNDO_CUATRIMESTRE# 1
+Analisis y Dis de Datos y Algoritmos# 2050010# 12.0# ANUAL# 2
+Introduccion a la Ingenieria del Software# 2050011# 12.0# ANUAL# 2
+Logica Informatica# 2050012# 6.0# PRIMER_CUATRIMESTRE# 2
+Redes de Computadores# 2050013# 6.0# PRIMER_CUATRIMESTRE# 2
+Sistemas Operativos# 2050014# 6.0# PRIMER_CUATRIMESTRE# 2
+Arquitectura de Computadores# 2050015# 6.0# SEGUNDO_CUATRIMESTRE# 2
+Arquitectura e Integracion de Sistemas#2050016#6.0#SEGUNDO_CUATRIMESTRE#2
+Matematica Discreta# 2050017# 6.0# SEGUNDO_CUATRIMESTRE# 2
+Bases de Datos# 2050018# 6.0# PRIMER_CUATRIMESTRE# 2
+Ingeniería del Software# 2050019# 6.0# PRIMER_CUATRIMESTRE# 3
+Sistemas Distribuidos# 2050020# 6.0# PRIMER_CUATRIMESTRE# 3
+Compiladores# 2050021# 6.0# SEGUNDO_CUATRIMESTRE# 3
+Inteligencia Artificial# 2050022# 6.0# SEGUNDO_CUATRIMESTRE# 3
+Desarrollo de Aplicaciones Web# 2050023# 6.0# SEGUNDO_CUATRIMESTRE# 3
+Seguridad Informática# 2050024# 6.0# PRIMER_CUATRIMESTRE# 4
+Gestión de Proyectos de Software# 2050025# 6.0# PRIMER_CUATRIMESTRE# 4
+Sistemas Empotrados# 2050026# 6.0# SEGUNDO_CUATRIMESTRE# 4
+Computación en la Nube# 2050027# 6.0# SEGUNDO_CUATRIMESTRE# 4
