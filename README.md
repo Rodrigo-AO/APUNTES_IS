@@ -34,7 +34,7 @@ Estos objetivos son a menudo **contrapuestos**, teniendo que sacrificar uno para
 
 Es el **estudio del tiempo de ejecución** de un algoritmo en función del **tamaño del problema** (`n`).
 
-Se representa con una **función T(n)**, generalmente **monótona creciente**.
+Se representa con una **función T(n)**, generalmente **monótona creciente**, que buscaremos asemejar a su **clase de equivalencia** correspondiente.
 
 Queremos saber:
 > ¿Cómo se comporta T(n) cuando n crece mucho?
@@ -54,18 +54,33 @@ Queremos saber:
 | O(aⁿ) | Exponencial | Backtracking, fuerza bruta |
 | O(n!) | Factorial | Generar todas las permutaciones |
 
+![Gráfico de jerarquía de ordenes de complejidad](/images/orden_complejidad.png)
+
 ---
 
-### 🔹 Ejemplo comparativo
+### 🔹 Ejemplo comparativo: efecto de duplicar el tamaño del problema
 
-| T(n) | n = 100 | n = 200 | Efecto de duplicar tamaño |
-|:------|:----------|:----------|:----------------------------|
-| k·log n | 1 s | 1.15 s | casi igual |
-| k·n | 1 s | 2 s | el doble |
-| k·n log n | 1 s | 2.3 s | algo más del doble |
-| k·n² | 1 s | 4 s | cuadruplica |
-| k·n³ | 1 s | 8 s | octuplica |
-| k·2ⁿ | 1 s | 1.27×10³⁰ s | inasumible 🚫 |
+| T(n) | n = 100 | n = 200 |
+|:------|:----------|:----------|
+| $k_{1} \thinspace log \thinspace n$ | 1 s | 1.15 s |
+| $k_{2} \thinspace n$ | 1 s | 2 s |
+| $k_{3} \thinspace n \thinspace log \thinspace n$ | 1 s | 2.3 s |
+| $k_{4} \thinspace n^{2}$ | 1 s | 4 s |
+| $k_{5} \thinspace n^{3}$ | 1 s | 8 s |
+| $k_{6} \thinspace 2^{n}$ | 1 s | 1.27×10³⁰ s |
+
+---
+
+### 🔹 Ejemplo comparativo: efecto de duplicar el tiempo disponible
+
+| T(n) | t = 1 s | t = 2 s |
+|:------|:----------|:----------|
+| $k_{1} \thinspace log \thinspace n$ | n=100 | n=10000 |
+| $k_{2} \thinspace n$ | n=100 | n=200 |
+| $k_{3} \thinspace n \thinspace log \thinspace n$ | n=100 | n=178 |
+| $k_{4} \thinspace n^{2}$ | n=100 | n=141 |
+| $k_{5} \thinspace n^{3}$ | n=100 | n=126 |
+| $k_{6} \thinspace 2^{n}$ | n=100 | n=101 |
 
 ---
 
@@ -73,34 +88,36 @@ Queremos saber:
 
 ### 🔹 Tamaño del problema (n)
 
-Es la **cantidad de información necesaria** para representarlo.  
+Es la **cantidad de información necesaria** para representarlo, definido a partir de las propiedades del mismo.  
 Cada subproblema debe ser **más pequeño que el original**.
 
 Ejemplo:
 
 ```java
 boolean contieneMultiplo(List<Integer> lista, int a) {
+    boolean res = false;
     for (int e : lista) {
-        if (e % a == 0)
-            return true; // termina antes si encuentra uno
+        res = e%a == 0
+        if(res) break;
     }
-    return false;
+    return res;
 }
 ```
 
 ---
 
-### 🔹 Tipos de bloques
+### 🔹 Complejidades if/while/for
 
-#### Bloque secuencial
+#### Secuencia de bloques
 
 ```c
 s1;
 s2;
-s3;
+...
+sk;
 ```
 **Complejidad total:**  
-T(n) = T(s1) + T(s2) + T(s3)
+$T_s(n) = T_{s1}(n) + T_{s2}(n) + ... + T_{sk}(n)$
 
 #### Bloque condicional (if)
 
@@ -113,8 +130,10 @@ if (g) {
 ```
 
 **Complejidad:**  
-T(n) = f₁·T(s1) + f₂·T(s2)  
-donde `f₁` y `f₂` son las frecuencias de ejecución.
+$T_{if}^p=T_g^p+\max \left(T_{s1}^p, T_{s2}^p\right)$  
+$T_{if}^m=T_g^m+\min \left(T_{s1}^m, T_{s2}^m\right)$  
+$T_{if}^{md}=T_g^{md}+\max \left(T_{s1}^{md}, T_{s2}^{md}\right)$  
+(siendo $f_i$ la frecuencia de ejecución del bloque $si/i\in[1,2]$)
 
 #### Bloque iterativo (while/for)
 
@@ -125,8 +144,19 @@ while (g) {
 ```
 
 **Complejidad:**  
-T(n) = Σ T(s) para cada iteración i  
-(número de iteraciones depende de n)
+$T_w(n)=T_g+\sum_{i \in I}\left(T_g+T_s(i)\right)$  
+(siendo $I$ el conjunto de valores que va tomando el tamaño en las sucesivas iteraciones)
+
+---
+
+## ❓ Complejidad de la recursión
+### 🔹 Complejidad de un algoritmo recursivo sin memoria  
+La **ecuación de recurrencias** para estimar el **tiempo total** para resolver el problema de tamaño $n$ **dependerá** de la complejidad (tiempo) de todas las **llamadas recursivas** y de la complejidad (tiempo) del **cuerpo del algoritmo**.  
+$T(n)=T\left(t_0(n)\right)+T\left(t_1(n)\right)+\ldots+T\left(t_{k-1}(n)\right)+f(n)$
+
+### 🔹 Complejidad de un algoritmo recursivo con memoria 
+Como cada subproblema se resuelve **una sola vez**, la **ecuación de recurrencias** dependerá del **número de subproblemas** distintos necesarios para resolver el problema y la **complejidad** de los mismos.  
+$\Theta\left(\sum_{p \in \mathcal{P}} f\left(n_p\right)\right)$
 
 ---
 
@@ -135,24 +165,27 @@ T(n) = Σ T(s) para cada iteración i
 Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende del tipo de progresión:
 
 - **Progresión aritmética (PA):**  
-  La variable de control se incrementa en una cantidad fija.  
-  Ejemplo: `for (i = 0; i < n; i++)`
+    La variable de control se incrementa en una cantidad fija.  
+    Ejemplo: `for (i = 0; i < n; i++)`  
+    $\sum_{x \in p a(a, r)}^n x^d \log ^p x=_{\infty} \frac{1}{r(d+1)} n^{d+1} \log ^p n$  
+    $pa(a,r)$ es progresión aritmética ($x$ recorre la secuencia $a+ri, i=0,1,2,...$ hasta $x=n$)
 
 - **Progresión geométrica (PG):**  
-  La variable se multiplica por una razón constante.  
-  Ejemplo: `for (i = 1; i < n; i *= 2)`
+    La variable se multiplica por una razón constante.  
+    Ejemplo: `for (i = 1; i < n; i *= 2)`  
+    $\sum_{x \in p g(a, r)}^n x^d \log ^p x \cong_{\infty} \begin{cases}\log ^{p+1} n, & \text { si } d=0, r>1 \\ n^d \log ^p n, & \text { si } d>0, r>1\end{cases}$
+    $pg(a,r)$ es progresión geom'etrica ($x$ recorre la secuencia $ar^i, i=0,1,2,...$ hasta $x=n$)
 
 ### Propiedades útiles
 
 1. Linealidad del sumatorio:  
-   Σ(f(i) + g(i)) = Σf(i) + Σg(i)
+    $\sum_{i=a}^b(f(i)+g(i))=\sum_{i=a}^b f(i)+\sum_{i=a}^b g(i)$
 
 2. Producto de sumas:  
-   Σi Σj f(i)g(j) = (Σi f(i)) (Σj g(j))
+    $\sum_{i=a}^b \sum_{j=c}^d f(i) g(j)=\sum_{i=a}^b f(i) \sum_{j=c}^d g(j)$
 
 3. Extracción de constantes:  
-   Si `g(x)` no depende de `i`:  
-   Σi g(x)·f(i) = g(x)·Σi f(i)
+    $\sum_{i=a}^b(g(x) f(i))=g(x) \sum_{i=a}^b f(i)$, si $g(x)$ no depende de $i$
 
 ---
 
@@ -160,13 +193,13 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 
 ### 🔹 Concepto
 
-Un **algoritmo recursivo** se define en términos de **subproblemas más pequeños**.
+Un **algoritmo recursivo** se categoriza según el tamaño de los **subproblemas** respecto al problema ($n-b$ o $n/b$).
 
-**Ecuación de recurrencia:**
+**Ejemlpo de ecuación de recurrencia no lineal:**  
+$T(n) = a \cdot T(n-n) + g(n)$
 
-```
-T(n) = a · T(n/b) + g(n)
-```
+**Ejemlpo de ecuación de recurrencia no lineal:**  
+$T(n) = a \cdot T(n/b) + g(n)$
 
 - `a`: número de subproblemas
 - `b`: factor de reducción del tamaño
@@ -174,12 +207,25 @@ T(n) = a · T(n/b) + g(n)
 
 ---
 
-### 🔹 Tipos
+### 🔹 Recurencias lineales
 
-| Tipo | Forma general | Ejemplo |
-|:-----|:---------------|:----------|
-| Lineal | T(n) = a·T(n - b) + g(n) | Recursión simple |
-| No lineal | T(n) = a₁·T(n/b₁) + a₂·T(n/b₂) + … + g(n) | Divide y vencerás |
+$T(n)=a \cdot T(n-b)+n^d \log ^p n$  
+$\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\ n^{d+1} \log ^p n, & \text { si } a=1 \\ n^d \log ^p n, & \text { si } a<1\end{cases}$
+
+**Recurencias lineales (aproximaciones)**  
+$T(n)=a_1\cdot T(n-b_1)+a_2\cdot T(n-b_2)+...+a-k\cdot T(n-b_k)+g(n), b_i < b_{i+1}$
+
+**Verifica**  
+$\Theta(R(n))<\Theta(T(n))<\Theta(S(n))$
+
+**Donde:**  
+$R(n)=(a_1+a_2+...+a_k)\cdot R(n-b_k)+g(n)$
+$S(n)=(a_1+a_2+...+a_k)\cdot S(n-b_1)+g(n)$
+
+### 🔹 Recurencias no lineales
+
+$T(n)=a \cdot T(n/b)+n^d \log ^p n$  
+$\Theta(T(n))= \begin{cases}n^{\log_b a}, & \text { si } a>b^d \\ n^{d} \log ^{p+1} n, & \text { si } a=b^d \\ n^d \log ^p n, & \text { si } a<b^d\end{cases}$
 
 ---
 
