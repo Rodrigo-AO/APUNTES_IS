@@ -1,0 +1,31 @@
+denominación;tipo;dificultad;ingredientes;tiempo;Calorias;Fecha creación;precio estimado
+Ensalada de Frutas;Postre;Baja;fresas-5-u,piña-0.25-u,kiwi-1-u,menta-50-cl,zumo naranja-100-cl;15;120;14/01/2024;7,5
+Spaghetti Bolognese;Plato principal;Media;pasta-200-gr,carne picada-250-gr,tomate frito-150-gr,cebolla-0.5-u,dientes ajo-4-u;45;400;09/01/2024;12,5
+Sopa de Tomate;Entrante;Baja;tomate-3-u,cebolla-1-u,dietes ajo-4-u,caldo de verduras-500-cl,albahaca-10-gr;35;120;29/01/2024;8,5
+Gazpacho;Entrante;Baja;;25;120;10/02/2024;6,95
+Pasta Alfredo;Plato principal;Baja;pasta-250-gr,crema-150-gr,queso parmesano-100-gr,mantequilla-25-gr,dietes ajo-3-u;25;350;12/01/2024;10,75
+Tacos de Pollo;Plato principal;Media;;30;300;13/01/2024;14,99
+Brócoli al Vapor;Acompañamiento;Baja;brócoli-500-gr,sal-4-gr,aceite de oliva-80-cl,zumo limón-100-cl,dietes ajo-3-u;15;120;08/03/2024;5,75
+Lasaña;Plato principal;Media;pasta-300-gr,carne picada-300-gr,tomate frito-200-gr,queso-40-gr,espinacas-100-gr;60;450;15/01/2024;16,5
+Sushi;Entrante;Media;;50;380;16/01/2024;18,25
+Risotto de Champiñones;Plato principal;Media;arroz-100-gr,champiñones-100-gr,caldo de verduras-500-cl,cebolla-0.75-u,vino blanco-200-cl;40;320;17/01/2024;13,99
+Hamburguesa con Queso;Plato principal;Baja;carne de res-200-gr,pan-100-gr,queso lonchas-1-u,lechuga-50-gr,tomate-0.5-gr;35;500;18/01/2024;11,25
+Sopa de Calabaza;Entrante;Baja;calabaza-500-gr,cebolla-0.5-u,caldo de pollo-1000-cl,zanahoria-2-u,dientes ajo-4-u;30;150;11/01/2024;9,95
+Mousse de Chocolate;Postre;Baja;chocolate-200-gr,nata-200-cl,azúcar-50-gr,huevos-4-u,vainilla-10-gr;15;300;20/01/2024;9,5
+Pizza Margarita;Plato principal;Baja;masa de pizza-300-gr,tomate frito-100-gr,mozzarella-100-gr,albahaca-30-gr,aceite de oliva-40-cl;30;420;21/01/2024;14
+Galletas de Avena;Postre;Baja;avena-200-gr,harina-150-gr,azúcar-10-gr,huevo-5-u,mantequilla-50-gr;25;150;31/01/2024;7,95
+Pollo a la Parrilla;Plato principal;Baja;pollo-1-u,sal-10-gr,pimienta-10-gr,zumo limón-100-cl,cabeza ajo-1-u;40;350;23/01/2024;12,99
+Gazpacho Andaluz;Entrante;Baja;tomate-10-u,pepino-1-u,pimiento-0.5-u,dientes ajo-5-u,pan-150-gr;20;150;24/02/2024;7,95
+Bruschetta;Entrante;Baja;pan-200-gr,tomate-4-u,dientes ajo-3-u,albahaca-10-gr,aceite de oliva-100-cl;20;160;08/02/2024;7,25
+Caponata;Entrante;Baja;berenjena-1-u,tomate-4-u,apio-2-u,aceitunas-15-u,alcaparras-10-u;30;160;21/02/2024;9,99
+Papas Asadas;Acompañamiento;Baja;papas-15-u,aceite de oliva-200-cl,sal-5-gr,pimienta-5-gr,romero-5-gr;40;180;19/01/2024;6,99
+Ensalada de Atún;Entrante;Baja;atún enlatado-200-gr,lechuga-0.5-u,tomate-2-u,aceitunas-20-u,cebolla-0.5-u;15;180;24/01/2024;9,25
+Puré de Papas;Acompañamiento;Baja;patatas-6-u,leche-500-cl,mantequilla-50-gr,sal-5-gr,pimienta-7-gr;20;180;02/02/2024;5,99
+Pollo al Curry;Plato principal;Media;pollo-1-u,curry-75-gr,cebolla-0.5-u,tomate tamizado-200-gr,leche de coco-50-cl;45;400;30/01/2024;15,75
+Ceviche de Pescado;Entrante;Baja;;20;180;12/02/2024;14,25
+Tortilla Española;Plato principal;Baja;patatas-8-u,huevos-5-u,cebolla-1-u,aceite de oliva-50-cl,sal-5-gr;30;320;01/02/2024;11,25
+Ensalada Waldorf;Entrante;Baja;manzana-1-u,apio-1-u,nueces-5-u,mayonesa-100-cl,uvas-15-u;15;180;17/02/2024;10,25
+Pastel de Zanahoria;Postre;Baja;zanahorias-10-u,harina-150-gr,azúcar-100-gr,huevo-5-u,nueces-7-u;55;300;03/02/2024;13,5
+Muffins de Arándanos;Postre;Baja;harina-200-gr,arándanos-200-gr,azúcar-100-gr,huevo-4-u,leche-400-cl;25;180;20/02/2024;7,95
+Sopa de Champiñones;Entrante;Baja;champiñones-200-gr,cebolla-0.75-u,dientes ajo-3-u,caldo de pollo-500-cl,perejil-10-gr;30;180;27/02/2024;8,5
+Arroz con Pollo;Plato principal;Baja;arroz-150-gr,pollo-1-u,cebolla-1-u,pimiento-1-u,azafrán-5-gr;40;380;06/02/2024;14,99
