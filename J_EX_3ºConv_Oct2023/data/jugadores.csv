@@ -1,0 +1,62 @@
+nombre_jugador;fecha_nacimiento;posicion;goles_temporada;asistencias_temporada;lesiones;club;posicion_clasificacion;estadio
+Lionel Messi;1987-06-24;DELANTERO;35;25;[Tobillo izquierdo, Gemelo derecho, Gemelo derecho];FC Barcelona;1;Estadio Camp Nou
+Sergio Ramos;1986-03-30;DEFENSOR;8;3;[Gemelo derecho, Tobillo izquierdo];Real Madrid;3;Estadio Santiago Bernabéu
+Karim Benzema;1987-12-19;DELANTERO;30;10;[Rodilla izquierda, Muslo derecho];Real Madrid;3;Estadio Santiago Bernabéu
+Vinicius Jr;1998-12-19;DELANTERO;25;5;[Rodilla izquierda];Real Madrid;3;Estadio Santiago Bernabéu
+Gerard Piqué;1987-02-02;DEFENSOR;3;5;[Gemelo derecho, Tobillo izquierdo];FC Barcelona;1;Estadio Camp Nou
+Jan Oblak;1993-01-07;PORTERO;0;0;[Hombro derecho, Rodilla izquierda];Atletico Madrid;2;Estadio Wanda Metropolitano
+Sergio Busquets;1988-07-16;CENTROCAMPISTA;5;10;[Rodilla derecha, Rodilla derecha, Tobillo izquierdo];FC Barcelona;1;Estadio Camp Nou
+Koke;1992-01-08;CENTROCAMPISTA;7;15;[Muslo izquierdo, Tobillo derecho, Tobillo derecho];Atletico Madrid;2;Estadio Wanda Metropolitano
+Jordi Alba;1989-03-21;DEFENSOR;2;8;[Gemelo izquierdo, Tobillo derecho];FC Barcelona;1;Estadio Camp Nou
+Luis Suárez;1987-01-24;DELANTERO;25;10;[Rodilla derecha];Atletico Madrid;2;Estadio Wanda Metropolitano
+Toni Kroos;1990-01-04;CENTROCAMPISTA;6;12;[Muslo derecho];Real Madrid;3;Estadio Santiago Bernabéu
+Antoine Griezmann;1991-03-21;DELANTERO;20;8;[Tobillo izquierdo, Tobillo izquierdo];FC Barcelona;1;Estadio Camp Nou
+Marc-André ter Stegen;1992-04-30;PORTERO;0;0;[];FC Barcelona;1;Estadio Camp Nou
+Thibaut Courtois;1992-05-11;PORTERO;0;0;[Rodilla izquierda];Real Madrid;3;Estadio Santiago Bernabéu
+Yannick Carrasco;1993-09-04;DELANTERO;10;5;[];Atletico Madrid;2;Estadio Wanda Metropolitano
+Dani Carvajal;1992-01-11;DEFENSOR;2;7;[];Real Madrid;3;Estadio Santiago Bernabéu
+Joaquin Correa;1994-08-13;DELANTERO;12;6;[Tobillo derecho];Sevilla FC;4;Estadio Ramon Sanchez-Pizjuan
+Ivan Rakitic;1988-03-10;CENTROCAMPISTA;4;6;[Tobillo derecho];Sevilla;4;Estadio Ramon Sanchez-Pizjuan
+Santi Cazorla;1984-12-13;CENTROCAMPISTA;10;8;[];Villarreal CF;5;Estadio de la Cerámica
+Roger Martí;1991-01-03;DELANTERO;12;3;[Gemelo derecho];Levante UD;7;Estadio Ciudad de Valencia
+Mikel Oyarzabal;1997-04-21;DELANTERO;15;9;[Rodilla izquierda];Real Sociedad;8;Estadio Anoeta
+Fernando Reges;1987-07-25;CENTROCAMPISTA;2;5;[];Sevilla FC;4;Estadio Ramon Sanchez-Pizjuan
+Youssef En-Nesyri;1997-06-01;DELANTERO;18;4;[];Sevilla FC;4;Estadio Ramon Sanchez-Pizjuan
+Ander Capa;1992-10-24;DEFENSOR;3;5;[];Athletic Club;9;Estadio San Mamés
+Unai Simón;1997-06-11;PORTERO;0;0;[];Athletic Club;9;Estadio San Mamés
+Jonathan Calleri;1993-09-23;DELANTERO;6;2;[];RCD Mallorca;10;Estadio de Son Moix
+Luis Milla;1996-04-14;CENTROCAMPISTA;4;7;[];Granada CF;11;Estadio Nuevo Los Cármenes
+Bryan Gil;2001-02-11;DELANTERO;8;9;[Tobillo derecho];SD Eibar;12;Estadio Municipal de Ipurua
+Rober Pier;1995-04-05;DEFENSOR;1;2;[];Levante UD;7;Estadio Ciudad de Valencia
+Adnan Januzaj;1995-02-05;DELANTERO;7;4;[Rodilla izquierda];Real Sociedad;8;Estadio Anoeta
+Borja Iglesias;1993-01-17;DELANTERO;10;3;[Muslo derecho];Real Betis;13;Estadio Benito Villamarin
+Jorge Molina;1982-04-22;DELANTERO;6;2;[Hombro derecho];Granada CF;11;Estadio Nuevo Los Cármenes
+Álex Remiro;1995-03-24;PORTERO;0;0;[];Real Sociedad;8;Estadio Anoeta
+Joselu;1990-03-27;DELANTERO;11;3;[Tobillo derecho];Deportivo Alavés;14;Estadio Mendizorroza
+Fran Beltrán;1999-02-03;CENTROCAMPISTA;3;5;[];Celta de Vigo;15;Estadio de Balaídos
+Yangel Herrera;1998-01-07;CENTROCAMPISTA;4;6;[];Granada CF;11;Estadio Nuevo Los Cármenes
+Rubén García;1992-07-19;DELANTERO;6;7;[];Osasuna;16;Estadio El Sadar
+Nolito;1986-10-15;DELANTERO;5;8;[];Celta de Vigo;15;Estadio de Balaídos
+Iñigo Martínez;1991-05-17;DEFENSOR;2;0;[];Athletic Club;9;Estadio San Mamés
+Denis Suárez;1994-01-06;CENTROCAMPISTA;4;6;[Tobillo derecho];Celta de Vigo;15;Estadio de Balaídos
+Sandro Ramírez;1995-07-09;DELANTERO;3;2;[Hombro derecho];SD Huesca;17;Estadio El Alcoraz
+Marcos Llorente;1995-01-30;CENTROCAMPISTA;9;10;[];Atletico Madrid;2;Estadio Wanda Metropolitano
+Ezequiel Ávila;1994-01-30;DELANTERO;6;1;[Rodilla derecha];SD Huesca;17;Estadio El Alcoraz
+Paco Alcácer;1993-08-30;DELANTERO;9;2;[];Villarreal CF;5;Estadio de la Cerámica
+Óscar Plano;1991-01-07;DELANTERO;3;3;[];Real Valladolid;18;Estadio Jose Zorrilla
+Sergi Guardiola;1991-09-26;DELANTERO;4;1;[Gemelo derecho];Real Valladolid;18;Estadio Jose Zorrilla
+Marc Roca;1996-11-26;CENTROCAMPISTA;2;3;[];RCD Espanyol;19;Estadio Cornellà-El Prat
+Sergi Darder;1993-12-22;CENTROCAMPISTA;5;4;[];RCD Espanyol;19;Estadio Cornellà-El Prat
+Roberto Rosales;1988-11-20;DEFENSOR;0;3;[];CD Leganés;20;Estadio Municipal de Butarque
+Ante Budimir;1991-07-22;DELANTERO;2;0;[];RCD Mallorca;10;Estadio de Son Moix
+Lucas Vázquez;1991-07-01;DELANTERO;4;6;[];Real Madrid;1;Estadio Santiago Bernabéu
+Guido Rodríguez;1994-04-12;CENTROCAMPISTA;1;1;[];Real Betis;13;Estadio Benito Villamarin
+Alex Berenguer;1995-07-04;DELANTERO;6;4;[];Athletic Club;9;Estadio San Mamés
+Damián Suárez;1988-05-27;DEFENSOR;0;2;[];Getafe CF;3;Estadio Coliseum Alfonso Pérez
+Germán Sánchez;1987-05-09;DEFENSOR;2;0;[];Granada CF;11;Estadio Nuevo Los Cármenes
+Javi Puado;1998-05-25;DELANTERO;4;3;[Hombro derecho];RCD Espanyol;19;Estadio Cornellà-El Prat
+Gaku Shibasaki;1992-05-28;CENTROCAMPISTA;1;3;[];Getafe CF;3;Estadio Coliseum Alfonso Pérez
+Facundo Roncaglia;1987-02-10;DEFENSOR;0;0;[Rodilla derecha];Real Valladolid;18;Estadio Jose Zorrilla
+José Luis Morales;1987-11-23;DELANTERO;10;4;[];Levante UD;7;Estadio Ciudad de Valencia
+Rubén Peña;1991-07-18;DEFENSOR;1;1;[Gemelo izquierdo];Villarreal CF;5;Estadio de la Cerámica
+Marcos André;1996-09-10;DELANTERO;5;2;[];Real Valladolid;18;Estadio Jose Zorrilla
