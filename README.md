@@ -173,7 +173,7 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 - **Progresión geométrica (PG):**  
     La variable se multiplica por una razón constante.  
     Ejemplo: `for (i = 1; i < n; i *= 2)`  
-    $\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}$
+    $\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}$  
     $pg(a,r)$ es progresión geom'etrica ($x$ recorre la secuencia $ar^i, i=0,1,2,...$ hasta $x=n$)
 
 ### Propiedades útiles
