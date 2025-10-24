@@ -173,7 +173,7 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 - **Progresión geométrica (PG):**  
     La variable se multiplica por una razón constante.  
     Ejemplo: `for (i = 1; i < n; i *= 2)`  
-    $\sum_{x \in p g(a, r)}^n x^d \log ^p x \cong_{\infty} \begin{cases}\log ^{p+1} n, & \text { si } d=0, r>1 \\ n^d \log ^p n, & \text { si } d>0, r>1\end{cases}$
+    $\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}$
     $pg(a,r)$ es progresión geom'etrica ($x$ recorre la secuencia $ar^i, i=0,1,2,...$ hasta $x=n$)
 
 ### Propiedades útiles
@@ -219,13 +219,25 @@ $T(n)=a_1\cdot T(n-b_1)+a_2\cdot T(n-b_2)+...+a-k\cdot T(n-b_k)+g(n), b_i < b_{i
 $\Theta(R(n))<\Theta(T(n))<\Theta(S(n))$
 
 **Donde:**  
-$R(n)=(a_1+a_2+...+a_k)\cdot R(n-b_k)+g(n)$
+$R(n)=(a_1+a_2+...+a_k)\cdot R(n-b_k)+g(n)$  
 $S(n)=(a_1+a_2+...+a_k)\cdot S(n-b_1)+g(n)$
+
+---
 
 ### 🔹 Recurencias no lineales
 
 $T(n)=a \cdot T(n/b)+n^d \log ^p n$  
 $\Theta(T(n))= \begin{cases}n^{\log_b a}, & \text { si } a>b^d \\ n^{d} \log ^{p+1} n, & \text { si } a=b^d \\ n^d \log ^p n, & \text { si } a<b^d\end{cases}$
+
+**Recurencias no lineales (aproximaciones)**  
+$T(n)=a_1 T\left(\frac{n}{b_1}\right)+a_2 T\left(\frac{n}{b_2}\right)+\cdots+a_k T\left(\frac{n}{b_k}\right)+g(n), b_i<b_{i+1}$
+
+**Verifica**  
+$\Theta(R(n))<\Theta(T(n))<\Theta(S(n))$
+
+**Donde:**  
+$R(n)=\left(a_1+a_2+\ldots+a_k\right) R\left(\frac{n}{b_k}\right)+g(n)$  
+$S(n)=\left(a_1+a_2+\ldots+a_k\right) S\left(\frac{n}{b_1}\right)+g(n)$  
 
 ---
 
@@ -240,12 +252,12 @@ int fib(int n) {
 }
 ```
 
-Ecuación de recurrencia:
-> T(n) = T(n-1) + T(n-2) + O(1)
+Ecuación de recurrencia:  
+$T(n) = T(n-1) + T(n-2) + O(1)$
 
-**Complejidad:** O(2ⁿ)
+**Complejidad:** $O(2^n)$
 
-#### Versión con memoria (DP)
+#### Versión con memoria
 
 ```java
 int fibDP(int n) {
@@ -257,19 +269,62 @@ int fibDP(int n) {
 }
 ```
 
-**Complejidad:** O(n)
+**Complejidad:** $O(n)$
 
 ---
 
 ## 🔗 Relación sumatorios y recurrencias
 
-Transformar una **recursión final** a **iterativa** produce **idéntico orden de complejidad**.
+Transformar un **recursivo final** a **iterativo** produce **idéntico orden de complejidad**. Es decir, la ecuación de recurrencia y el sumatorio suponen la **misma cantidad de trabajo** (mismo orden de complejidad).
 
-| Forma recursiva | Forma iterativa | Orden |
-|:----------------|:----------------|:-------|
-| T(n) = T(n-1) + O(1) | Bucle lineal | O(n) |
-| T(n) = 2·T(n/2) + O(n) | MergeSort | O(n log n) |
-| T(n) = T(n/2) + O(1) | Búsqueda binaria | O(log n) |
+Se consideran aproximaciones para las pa y pg:  
+$T(n)=T(n-b)+n^d \log ^p n \equiv \sum_{x \in p a(a, r)}^n x^d \log ^p x$  
+$T(n)=T(n/b)+n^d \log ^p n \equiv \sum_{x \in p g(a, r)}^n x^d \log ^p x$
+
+---
+### 💡 Ejemplo
+
+```java
+double f (int n, double a) {
+    double r;
+    if(n==1) {
+        r=a;
+    } else {
+        r=f(n/2, a+1) - f(n/2, a-1);
+        for(int i=1; i<=n; i++) {
+            r+=a*i
+        }
+    }
+    return r;
+}
+```
+
+**Complejidad del cuerpo del algoritmos (descartando llamadas recursivas)**:  
+1. Cuerpo del bucle $\rightarrow$ bloque básico: analizamos el interior, donde encontramos un bucle de orden n (`for(int i=1; i<=n; i++)`)  
+    $\sum_{i=1}^n 1=n\in \theta(n)$
+
+2. Exterior del bucle $\rightarrow$ bloque básico: analizamos el exterior del bucle, donde encontramos la doble llamada recursiva (`r=f(n/2, a+1) - f(n/2, a-1)`)  
+    $\theta(1)$
+
+    Cuerpo del algoritmo: $\theta(1+n)=\theta(n)$
+
+A partir de aquí, sacamos la **ecuación de recurrencia** y aplicamos las **fórmulas** anteriores ([Complejidad de sumatorios](#complejidad-de-sumatorios))
+
+Tenemos en cuenta la **parte recursiva**, que **llama 2 veces** a `f(n/2)` y realiza un **trabajo de $\theta(n)$** en cada llamada:  
+
+$T(n) = 2\cdot T(n/2)+n$
+
+Con las **fórmulas** previamente vistas, **ubicamos** `a=2` (número de subproblemas), `b=2` (factor de reducción del tamaño) y `f(n)=n` (coste fuera de las llamadas recursivas), y **comparamos** $f(n)$ con $n^{\log_ba}$:
+
+$T(n) = \theta(n\thinspace log\thinspace n)$ 
+
+| Parte | Significado | Complejidad |
+|:------|:----------|:----------|
+| Bucle `for` | Se ejecuta n veces | $\theta(n)$ |
+| Llamadas recursivas | 2 llamadas de tamaño $n/2$ | $2\cdot T(n/2)$ |
+| Ecuación total | Trabajo interno + recursión | $T(n)=2\cdot T(n/2)+n$ |
+| Resultado final | Aplicando fórmulas | $T(n)=\theta(n\thinspace log\thinspace n)$ |
+
 
 ---
 
