@@ -611,3 +611,6 @@ Tendrá si o si que recorrer toda la lista, dado que no hay función de cortocir
 > “Premature optimization is the root of all evil.” — Donald Knuth
 
 > Todo el contenido ha sido extraido de apuntes del Departamento de Lenguajes y Sistemas Informáticos
+
+
+> Hoja de apoyo curso 2025/2026 en ./resources/HojaAyuda.pdf
