@@ -209,8 +209,12 @@ $T(n) = a \cdot T(n/b) + g(n)$
 
 ### 🔹 Recurencias lineales
 
+```math
+\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\\ n^{d+1} \log ^p n, & \text { si } a=1 \\\ n^d \log ^p n, & \text { si } a<{1}\end{cases}
+```
+
 $T(n)=a \cdot T(n-b)+n^d \log ^p n$  
-$\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\ n^{d+1} \log ^p n, & \text { si } a=1 \\ n^d \log ^p n, & \text { si } a<{1}\end{cases}$
+$\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\\ n^{d+1} \log ^p n, & \text { si } a=1 \\\ n^d \log ^p n, & \text { si } a<{1}\end{cases}$
 
 **Recurencias lineales (aproximaciones)**  
 $T(n)=a_1\cdot T(n-b_1)+a_2\cdot T(n-b_2)+...+a-k\cdot T(n-b_k)+g(n), b_i < b_{i+1}$
