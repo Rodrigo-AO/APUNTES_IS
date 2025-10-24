@@ -402,7 +402,7 @@ T(n)=2T(n-2)+1
 ```math
 T(n)=2T(n-1)+1
 ```
-`Nos interesa acotarla por 2 funciones las cuales sean conocidas (que podamos sacar de la hoja de formulas vaya)`
+`Nos interesa acotarla por 2 funciones las cuales sean conocidas (que podamos sacar de la hoja de formulas vaya)`  
 ![Caso A hoja de apoyo](images/ejemplo_hoja_apoyo.png)  
 `Como podemos ver, aquí a=2, b=2/b=1 para la 2º/1º, d=0 y p=0, así que sacamos sus correspondientes según esta fórmula`
 ```math
