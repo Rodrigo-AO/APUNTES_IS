@@ -227,7 +227,7 @@ $S(n)=(a_1+a_2+...+a_k)\cdot S(n-b_1)+g(n)$
 ### 🔹 Recurencias no lineales
 
 $T(n)=a \cdot T(n/b)+n^d \log ^p n$  
-$\Theta(T(n))=\begin{cases}n^{\log_ba}, & \text{si }a>b^d \\ n^d\log^{p+1}n, & \text{si }a=b^d \\ n^d\log^pn, & \text{si }a<{b^d}\end{cases}$ 
+$\Theta(T(n))= \begin{cases} n^{\log_ba}, & \text{si }a>b^d \\\ n^d\log^{p+1}n, & \text{si }a=b^d \\\ n^d\log^pn, & \text{si }a<{b^d} \end{cases}$ 
 
 **Recurencias no lineales (aproximaciones)**  
 $T(n)=a_1 T\left(\frac{n}{b_1}\right)+a_2 T\left(\frac{n}{b_2}\right)+\cdots+a_k T\left(\frac{n}{b_k}\right)+g(n), b_i<b_{i+1}$
