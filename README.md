@@ -117,7 +117,9 @@ s2;
 sk;
 ```
 **Complejidad total:**  
-$T_s(n) = T_{s1}(n) + T_{s2}(n) + ... + T_{sk}(n)$
+```math
+T_s(n) = T_{s1}(n) + T_{s2}(n) + ... + T_{sk}(n)
+```
 
 #### Bloque condicional (if)
 
@@ -130,9 +132,15 @@ if (g) {
 ```
 
 **Complejidad:**  
-$T_{if}^p=T_g^p+\max \left(T_{s1}^p, T_{s2}^p\right)$  
-$T_{if}^m=T_g^m+\min \left(T_{s1}^m, T_{s2}^m\right)$  
-$T_{if}^{md}=T_g^{md}+\max \left(T_{s1}^{md}, T_{s2}^{md}\right)$  
+```math
+T_{if}^p=T_g^p+\max \left(T_{s1}^p, T_{s2}^p\right)
+```
+```math
+T_{if}^m=T_g^m+\min \left(T_{s1}^m, T_{s2}^m\right)
+```
+```math
+T_{if}^{md}=T_g^{md}+\max \left(T_{s1}^{md}, T_{s2}^{md}\right)
+```  
 (siendo $f_i$ la frecuencia de ejecución del bloque $si/i\in[1,2]$)
 
 #### Bloque iterativo (while/for)
@@ -144,7 +152,9 @@ while (g) {
 ```
 
 **Complejidad:**  
-$T_w(n)=T_g+\sum_{i \in I}\left(T_g+T_s(i)\right)$  
+```math
+T_w(n)=T_g+\sum_{i \in I}\left(T_g+T_s(i)\right)
+```
 (siendo $I$ el conjunto de valores que va tomando el tamaño en las sucesivas iteraciones)
 
 ---
@@ -152,11 +162,15 @@ $T_w(n)=T_g+\sum_{i \in I}\left(T_g+T_s(i)\right)$
 ## ❓ Complejidad de la recursión
 ### 🔹 Complejidad de un algoritmo recursivo sin memoria  
 La **ecuación de recurrencias** para estimar el **tiempo total** para resolver el problema de tamaño $n$ **dependerá** de la complejidad (tiempo) de todas las **llamadas recursivas** y de la complejidad (tiempo) del **cuerpo del algoritmo**.  
-$T(n)=T\left(t_0(n)\right)+T\left(t_1(n)\right)+\ldots+T\left(t_{k-1}(n)\right)+f(n)$
+```math
+T(n)=T\left(t_0(n)\right)+T\left(t_1(n)\right)+\ldots+T\left(t_{k-1}(n)\right)+f(n)
+```
 
 ### 🔹 Complejidad de un algoritmo recursivo con memoria 
 Como cada subproblema se resuelve **una sola vez**, la **ecuación de recurrencias** dependerá del **número de subproblemas** distintos necesarios para resolver el problema y la **complejidad** de los mismos.  
-$\Theta\left(\sum_{p \in \mathcal{P}} f\left(n_p\right)\right)$
+```math
+\Theta\left(\sum_{p \in \mathcal{P}} f\left(n_p\right)\right)
+```
 
 ---
 
@@ -167,25 +181,35 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 - **Progresión aritmética (PA):**  
     La variable de control se incrementa en una cantidad fija.  
     Ejemplo: `for (i = 0; i < n; i++)`  
-    $\sum_{x \in p a(a, r)}^n x^d \log ^p x=_{\infty} \frac{1}{r(d+1)} n^{d+1} \log ^p n$  
+    ```math
+    \sum_{x \in p a(a, r)}^n x^d \log ^p x=_{\infty} \frac{1}{r(d+1)} n^{d+1} \log ^p n  
+    ```
     $pa(a,r)$ es progresión aritmética ($x$ recorre la secuencia $a+ri, i=0,1,2,...$ hasta $x=n$)
 
 - **Progresión geométrica (PG):**  
     La variable se multiplica por una razón constante.  
     Ejemplo: `for (i = 1; i < n; i *= 2)`  
-    $\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}$  
+    ```math
+    \sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}  
+    ```
     $pg(a,r)$ es progresión geom'etrica ($x$ recorre la secuencia $ar^i, i=0,1,2,...$ hasta $x=n$)
 
 ### Propiedades útiles
 
 1. Linealidad del sumatorio:  
-    $\sum_{i=a}^b(f(i)+g(i))=\sum_{i=a}^b f(i)+\sum_{i=a}^b g(i)$
+    ```math
+    \sum_{i=a}^b(f(i)+g(i))=\sum_{i=a}^b f(i)+\sum_{i=a}^b g(i)
+    ```
 
 2. Producto de sumas:  
-    $\sum_{i=a}^b \sum_{j=c}^d f(i) g(j)=\sum_{i=a}^b f(i) \sum_{j=c}^d g(j)$
+    ```math
+    \sum_{i=a}^b \sum_{j=c}^d f(i) g(j)=\sum_{i=a}^b f(i) \sum_{j=c}^d g(j)
+    ```
 
-3. Extracción de constantes:  
-    $\sum_{i=a}^b(g(x) f(i))=g(x) \sum_{i=a}^b f(i)$, si $g(x)$ no depende de $i$
+3. Extracción de constantes:
+    ```math
+    \sum_{i=a}^b(g(x) f(i))=g(x) \sum_{i=a}^b f(i), \text{si } g(x) \text{ no depende de }i
+    ```
 
 ---
 
@@ -196,10 +220,14 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 Un **algoritmo recursivo** se categoriza según el tamaño de los **subproblemas** respecto al problema ($n-b$ o $n/b$).
 
 **Ejemlpo de ecuación de recurrencia no lineal:**  
-$T(n) = a \cdot T(n-n) + g(n)$
+```math
+T(n) = a \cdot T(n-n) + g(n)
+```
 
 **Ejemlpo de ecuación de recurrencia no lineal:**  
-$T(n) = a \cdot T(n/b) + g(n)$
+```math
+T(n) = a \cdot T(n/b) + g(n)
+```
 
 - `a`: número de subproblemas
 - `b`: factor de reducción del tamaño
@@ -210,38 +238,58 @@ $T(n) = a \cdot T(n/b) + g(n)$
 ### 🔹 Recurencias lineales
 
 ```math
-\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\\ n^{d+1} \log ^p n, & \text { si } a=1 \\\ n^d \log ^p n, & \text { si } a<{1}\end{cases}
+T(n)=a \cdot T(n-b)+n^d \log ^p n
+```
+```math
+\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\ n^{d+1} \log ^p n, & \text { si } a=1 \\ n^d \log ^p n, & \text { si } a<{1}\end{cases}
 ```
 
-$T(n)=a \cdot T(n-b)+n^d \log ^p n$  
-$\Theta(T(n))= \begin{cases}a^{n / b} \log ^p n, & \text { si } a>1 \\\ n^{d+1} \log ^p n, & \text { si } a=1 \\\ n^d \log ^p n, & \text { si } a<{1}\end{cases}$
-
 **Recurencias lineales (aproximaciones)**  
-$T(n)=a_1\cdot T(n-b_1)+a_2\cdot T(n-b_2)+...+a-k\cdot T(n-b_k)+g(n), b_i < b_{i+1}$
+```math
+T(n)=a_1\cdot T(n-b_1)+a_2\cdot T(n-b_2)+...+a-k\cdot T(n-b_k)+g(n), b_i < b_{i+1}
+```
 
 **Verifica**  
-$\Theta(R(n))<\Theta(T(n))<\Theta(S(n))$
+```math
+\Theta(R(n))<\Theta(T(n))<\Theta(S(n))
+```
 
-**Donde:**  
-$R(n)=(a_1+a_2+...+a_k)\cdot R(n-b_k)+g(n)$  
-$S(n)=(a_1+a_2+...+a_k)\cdot S(n-b_1)+g(n)$
+**Donde:** 
+```math 
+R(n)=(a_1+a_2+...+a_k)\cdot R(n-b_k)+g(n) 
+```
+```math
+S(n)=(a_1+a_2+...+a_k)\cdot S(n-b_1)+g(n)
+```
 
 ---
 
 ### 🔹 Recurencias no lineales
 
-$T(n)=a \cdot T(n/b)+n^d \log ^p n$  
-$\Theta(T(n))= \begin{cases} n^{\log_ba}, & \text{si }a>b^d \\\ n^d\log^{p+1}n, & \text{si }a=b^d \\\ n^d\log^pn, & \text{si }a<{b^d} \end{cases}$ 
+```math
+T(n)=a \cdot T(n/b)+n^d \log ^p n
+```
+```math
+\Theta(T(n))= \begin{cases} n^{\log_ba}, & \text{si }a>b^d \\ n^d\log^{p+1}n, & \text{si }a=b^d \\ n^d\log^pn, & \text{si }a<{b^d} \end{cases}
+```
 
 **Recurencias no lineales (aproximaciones)**  
-$T(n)=a_1 T\left(\frac{n}{b_1}\right)+a_2 T\left(\frac{n}{b_2}\right)+\cdots+a_k T\left(\frac{n}{b_k}\right)+g(n), b_i<b_{i+1}$
+```math
+T(n)=a_1 T\left(\frac{n}{b_1}\right)+a_2 T\left(\frac{n}{b_2}\right)+\cdots+a_k T\left(\frac{n}{b_k}\right)+g(n), b_i<b_{i+1}
+```
 
 **Verifica**  
-$\Theta(R(n))<\Theta(T(n))<\Theta(S(n))$
+```math
+\Theta(R(n))<\Theta(T(n))<\Theta(S(n))
+```
 
 **Donde:**  
-$R(n)=\left(a_1+a_2+\ldots+a_k\right) R\left(\frac{n}{b_k}\right)+g(n)$  
-$S(n)=\left(a_1+a_2+\ldots+a_k\right) S\left(\frac{n}{b_1}\right)+g(n)$  
+```math
+R(n)=\left(a_1+a_2+\ldots+a_k\right) R\left(\frac{n}{b_k}\right)+g(n)
+```
+```math
+S(n)=\left(a_1+a_2+\ldots+a_k\right) S\left(\frac{n}{b_1}\right)+g(n)
+```
 
 ---
 
@@ -256,8 +304,10 @@ int fib(int n) {
 }
 ```
 
-Ecuación de recurrencia:  
-$T(n) = T(n-1) + T(n-2) + O(1)$
+Ecuación de recurrencia:
+```math
+T(n) = T(n-1) + T(n-2) + O(1)
+```
 
 **Complejidad:** $O(2^n)$
 
@@ -304,24 +354,28 @@ double f (int n, double a) {
 ```
 
 **Complejidad del cuerpo del algoritmos (descartando llamadas recursivas)**:  
-1. Cuerpo del bucle $\rightarrow$ bloque básico: analizamos el interior, donde encontramos un bucle de orden n (`for(int i=1; i<=n; i++)`)  
-    $\sum_{i=1}^n 1=n\in \theta(n)$
+1. Cuerpo del bucle $\rightarrow$ bloque básico: analizamos el interior, donde encontramos un bucle de orden n (`for(int i=1; i<=n; i++)`) 
+    ```math
+    \sum_{i=1}^n 1=n\in \theta(n)
+    ```
 
-2. Exterior del bucle $\rightarrow$ bloque básico: analizamos el exterior del bucle, donde encontramos la doble llamada recursiva (`r=f(n/2, a+1) - f(n/2, a-1)`)  
-    $\theta(1)$
+2. Exterior del bucle $\rightarrow$ bloque básico: analizamos el exterior del bucle, donde encontramos la doble llamada recursiva (`r=f(n/2, a+1) - f(n/2, a-1)`)
+    ```math
+    \theta(1)
+    ```
 
     Cuerpo del algoritmo: $\theta(1+n)=\theta(n)$
 
 A partir de aquí, sacamos la **ecuación de recurrencia** y aplicamos las **fórmulas** anteriores ([Complejidad de sumatorios](#complejidad-de-sumatorios))
 
 Tenemos en cuenta la **parte recursiva**, que **llama 2 veces** a `f(n/2)` y realiza un **trabajo de $\theta(n)$** en cada llamada:  
-
-$T(n) = 2\cdot T(n/2)+n$
-
+```math
+T(n) = 2\cdot T(n/2)+n
+```
 Con las **fórmulas** previamente vistas, **ubicamos** `a=2` (número de subproblemas), `b=2` (factor de reducción del tamaño) y `f(n)=n` (coste fuera de las llamadas recursivas), y **comparamos** $f(n)$ con $n^{\log_ba}$:
-
-$T(n) = \theta(n\thinspace log\thinspace n)$ 
-
+```math
+T(n) = \theta(n\thinspace log\thinspace n)
+```
 | Parte | Significado | Complejidad |
 |:------|:----------|:----------|
 | Bucle `for` | Se ejecuta n veces | $\theta(n)$ |
