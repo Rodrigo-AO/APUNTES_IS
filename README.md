@@ -181,17 +181,17 @@ Los **bucles** suelen expresarse como **sumatorios**, y su complejidad depende d
 - **Progresión aritmética (PA):**  
     La variable de control se incrementa en una cantidad fija.  
     Ejemplo: `for (i = 0; i < n; i++)`  
-    ```math
-    \sum_{x \in p a(a, r)}^n x^d \log ^p x=_{\infty} \frac{1}{r(d+1)} n^{d+1} \log ^p n  
-    ```
+```math
+\sum_{x \in p a(a, r)}^n x^d \log ^p x=_{\infty} \frac{1}{r(d+1)} n^{d+1} \log ^p n  
+```
     $pa(a,r)$ es progresión aritmética ($x$ recorre la secuencia $a+ri, i=0,1,2,...$ hasta $x=n$)
 
 - **Progresión geométrica (PG):**  
     La variable se multiplica por una razón constante.  
     Ejemplo: `for (i = 1; i < n; i *= 2)`  
-    ```math
-    \sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}  
-    ```
+```math
+\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}  
+```
     $pg(a,r)$ es progresión geom'etrica ($x$ recorre la secuencia $ar^i, i=0,1,2,...$ hasta $x=n$)
 
 ### Propiedades útiles
