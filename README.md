@@ -327,13 +327,17 @@ int fibDP(int n) {
 
 ---
 
-## 🔗 Relación sumatorios y recurrencias
+### 🔗 Relación sumatorios y recurrencias
 
 Transformar un **recursivo final** a **iterativo** produce **idéntico orden de complejidad**. Es decir, la ecuación de recurrencia y el sumatorio suponen la **misma cantidad de trabajo** (mismo orden de complejidad).
 
 Se consideran aproximaciones para las pa y pg:  
-$T(n)=T(n-b)+n^d \log ^p n \equiv \sum_{x \in p a(a, r)}^n x^d \log ^p x$  
-$T(n)=T(n/b)+n^d \log ^p n \equiv \sum_{x \in p g(a, r)}^n x^d \log ^p x$
+```math
+T(n)=T(n-b)+n^d \log ^p n \equiv \sum_{x \in p a(a, r)}^n x^d \log ^p x
+```
+```math
+T(n)=T(n/b)+n^d \log ^p n \equiv \sum_{x \in p g(a, r)}^n x^d \log ^p x
+```
 
 ---
 ### 💡 Ejemplo
@@ -356,15 +360,15 @@ double f (int n, double a) {
 **Complejidad del cuerpo del algoritmos (descartando llamadas recursivas)**:  
 1. Cuerpo del bucle $\rightarrow$ bloque básico: analizamos el interior, donde encontramos un bucle de orden n (`for(int i=1; i<=n; i++)`) 
     ```math
-    \sum_{i=1}^n 1=n\in \theta(n)
+    \sum_{i=1}^n 1=n\in \Theta(n)
     ```
 
 2. Exterior del bucle $\rightarrow$ bloque básico: analizamos el exterior del bucle, donde encontramos la doble llamada recursiva (`r=f(n/2, a+1) - f(n/2, a-1)`)
     ```math
-    \theta(1)
+    \Theta(1)
     ```
 
-    Cuerpo del algoritmo: $\theta(1+n)=\theta(n)$
+    Cuerpo del algoritmo: $\Theta(1+n)=\Theta(n)$
 
 A partir de aquí, sacamos la **ecuación de recurrencia** y aplicamos las **fórmulas** anteriores ([Complejidad de sumatorios](#complejidad-de-sumatorios))
 
@@ -374,7 +378,7 @@ T(n) = 2\cdot T(n/2)+n
 ```
 Con las **fórmulas** previamente vistas, **ubicamos** `a=2` (número de subproblemas), `b=2` (factor de reducción del tamaño) y `f(n)=n` (coste fuera de las llamadas recursivas), y **comparamos** $f(n)$ con $n^{\log_ba}$:
 ```math
-T(n) = \theta(n\thinspace log\thinspace n)
+T(n) = \Theta(n\thinspace log\thinspace n)
 ```
 | Parte | Significado | Complejidad |
 |:------|:----------|:----------|
@@ -383,19 +387,115 @@ T(n) = \theta(n\thinspace log\thinspace n)
 | Ecuación total | Trabajo interno + recursión | $T(n)=2\cdot T(n/2)+n$ |
 | Resultado final | Aplicando fórmulas | $T(n)=\theta(n\thinspace log\thinspace n)$ |
 
+---
+
+**Complejidad del algoritmo para calcular los numeros de fibonicca**
+```math
+f(n)=\begin{cases}n,&\text{si }n\leq 1 \\ f(n-1)+f(n-2), &\text{si }n>1 \end{cases}
+```
+Recurrencia correspondiente: $T(n)=T(n-1)+T(n-2)+1$  
+`El 1 viene de la operación adicional de sumar (constante)`  
+Esta se puede acotar por otras 2 recurrencias:
+```math
+T(n)=2T(n-2)+1
+```
+```math
+T(n)=2T(n-1)+1
+```
+`Nos interesa acotarla por 2 funciones las cuales sean conocidas (que podamos sacar de la hoja de formulas vaya)`
+![Caso A hoja de apoyo](images/ejemplo_hoja_apoyo.png)  
+`Como podemos ver, aquí a=2, b=2/b=1 para la 2º/1º, d=0 y p=0, así que sacamos sus correspondientes según esta fórmula`
+```math
+\Theta(2^{n/2})<\Theta(n) <\Theta(2^n)
+```
+Con memoria, supondría sumar n veces, ya que el caso base solo se calcularía 1 vez:
+```math
+\Theta(\sum^{n}_{1}1) = \Theta(n)
+```
+
+---
+### 💡 Ejemplo
+```java
+int F(int n) {
+    int x, j, i;
+    if (n < 10) {
+        i = n;
+    } else {
+        i = 1;
+        j = 0;
+        while ((i * i) <= n) {
+            j = j + A(i);
+            i = i + 1;
+        }}
+    x = n;
+    while (x > 1) {
+        j = j + x;
+        x = x / 4;
+        for (int i = 1; i <= n; i++) {
+            j = j * B(i, n);
+        }}
+    i = 2 * F(n / 2) + j;   // llamada(s) recursivas
+    return i;
+}
+```
+
+**Primer bloque:** `while((i * i) <= n)`  
+El bucle se repite mientras $i^2 \leq n \rightarrow i \leq \sqrt{n}$  
+Cada iteración ejecuta `j = j + A(i)`, donde suponemos que `A(i)` tiene un coste de $\Theta(i)$
+Resultado del primer bucle:
+```math
+\sum^{\lfloor \sqrt{n} \rfloor}_{i=1}\Theta(i)=\Theta(\sum^{\sqrt{n}}_{i=1}i) = \Theta(\frac{(\sqrt{n})(\sqrt{n}+1)}{2}) \approx \Theta(n)
+```
+![Sumatorio i](images/ejemplo_comun_i.png)
+
+**Segundo bloque:** `while((x > 1) {... for(int i = 1; i <= n; i++)}`  
+Tenemos un bucle for que aumenta de 1 en 1 hasta n y un bloque while que disminuye en orden de `x=x/4` (pg)  
+**Bucle for**:  
+Cada iteración llama a `B(i,n)`, que suponemos de coste $\Theta(n)$, dada su ejecución n veces tenemos:  
+```math
+\sum^{n}_{i=1}\Theta(B(i,n))=n\cdot \Theta(n) = \Theta(n^2)
+```
+
+**Bucle while:**  
+Como habíamos dicho, sigue una pg con 1 subproblema (`a=4`), que reduce con `b=4` y con un coste por iteración de $\Theta(n^2)$  
+Un bloque while que sigue una progresión geométrica lo aproximamos gracias a la hoja:
+```math
+\sum_{x\in pg(a,r)}^n x^d\log^px\cong_{\infty} \begin{cases}\log^{p+1} n,&\text{ si }d=0,r>1\\n^d\log^pn,&\text{ si }d>0,r>1\end{cases}  
+```
+Extrapolado a nuestro caso:
+```math
+\sum_{x\in pg(1,4)}^n 1 \approx \Theta(\log n)
+```
+`Es logaritmo es algo extraño, pero viene de que si se sige una pa, las que iteras se aproxima a n, pero en una pg la cantidad de veces que iteras se aproxima a log n`  
+
+**Coste total del segundo bloque**  
+Dado que los sumatorios están anidados, según la propiedad del producto de sumas:  
+```math
+\sum^{n}_{i=1}\Theta(B(i,n))\sum_{x\in pg(a,r)}^n1 = \Theta(n^2)\cdot \Theta(\log n) = \Theta(n^2\log n)
+```
+
+**Llamadas recursivas:  `i = 2 * F(n / 2) + j`**  
+```math
+T(n) = 2T(n/2)+n^2\log n
+```
+```math
+T(n) \in \Theta(n^2\log n)
+```
+
 
 ---
 
-## 💡 Ejemplos prácticos
+### 💡 Ejemplos extra sencillos
 
-### Ejemplo 1 — Bucle simple
+#### Ejemplo 1 — Bucle simple
 
 ```c
 for (int i = 0; i < n; i++)
     s;
 ```
-
-Σ (1) → O(n)
+```math
+\sum(1)\rightarrow \Theta(n)
+```
 
 ---
 
@@ -406,23 +506,24 @@ for (int i = 0; i < n; i++)
     for (int j = 0; j < n; j++)
         s;
 ```
-
-Σ Σ (1) → O(n²)
+```math
+\sum\sum(1)\rightarrow \Theta(n^2)
+```
 
 ---
 
 ### Ejemplo 3 — Recursión doble con bucles
 
-```java
+```c
 void algo(int n) {
     if (n <= 1) return;
     for (int i = 0; i < n; i++)
         algo(n / 2);
 }
 ```
-
-T(n) = n·T(n/2) + O(n)  
-≈ O(n log n)
+```math
+T(n)=n\cdot T(n/2)+\Theta(n)\approx \Theta(n\log n)
+```
 
 ---
 
@@ -432,9 +533,16 @@ Los algoritmos **no siempre tardan lo mismo** para entradas del mismo tamaño.
 
 | Caso | Definición | Símbolo | Ejemplo |
 |:------|:-------------|:----------|:----------|
-| **Mejor** | Tiempo mínimo posible | Tm(n) | Primer elemento ya cumple condición |
-| **Peor** | Tiempo máximo posible | Tp(n) | Ningún elemento cumple condición |
-| **Medio** | Tiempo promedio | Td(n) | Depende de distribución f(p) |
+| **Peor** | Tiempo máximo posible | $T_p(n)$ | Ningún elemento cumple condición |
+| **Mejor** | Tiempo mínimo posible | $T_m(n)$ | Primer elemento ya cumple condición |
+| **Medio** | Tiempo promedio | $T_d(n)$ | Depende de distribución de probabilidad de los problemas $f(p)$ |
+
+---
+
+Distribución de probabilidad de los problemas:  
+```math
+T_d(n)=\sum_{p\in P_n}T(n_p)f(p)
+```
 
 ---
 
@@ -442,19 +550,42 @@ Los algoritmos **no siempre tardan lo mismo** para entradas del mismo tamaño.
 
 ```java
 boolean contieneMultiplo(List<Integer> lis, int a) {
-    for (int e : lis) {
-        if (e % a == 0)
-            return true;
+    boolean res=false;
+    for (Integer e : lis) {
+        res=e%a==0;
+        if(res) break;
     }
-    return false;
+    return res;
 }
 ```
 
 | Caso | Complejidad | Explicación |
 |:-----|:-------------|:------------|
-| Mejor | Θ(1) | Primer elemento es múltiplo |
-| Peor | Θ(n) | Ninguno lo es |
-| Medio | Θ(1) (si la probabilidad es alta) | Depende de distribución |
+| Mejor | $\Theta(1)$ | Primer elemento es múltiplo |
+| Peor | $\Theta(n)$ | Ninguno elemento es múltiplo |
+| Medio | $\Theta(1)$ | Depende de distribución |
+
+---
+
+### 🔹 Ejemplo práctico sin optimizar
+
+```java
+boolean contieneMultiplo(List<Integer> lis, int a) {
+    boolean res=false;
+    for (Integer e : lis) {
+        res=res || e%a==0;
+    }
+    return res;
+}
+```
+Tendrá si o si que recorrer toda la lista, dado que no hay función de cortocircuito
+
+| Caso | Complejidad | Explicación |
+|:-----|:-------------|:------------|
+| Mejor | $\Theta(n)$ | Primer elemento es múltiplo |
+| Peor | $\Theta(n)$ | Ninguno elemento es múltiplo |
+| Medio | $\Theta(n)$ | Depende de distribución |
+
 
 ---
 
@@ -462,7 +593,7 @@ boolean contieneMultiplo(List<Integer> lis, int a) {
 
 - La **eficiencia** de un algoritmo depende tanto de su diseño como de su implementación.
 - El **análisis de complejidad** permite **comparar algoritmos objetivamente**.
-- Las **recurrencias y sumatorios** son las herramientas principales para calcular T(n).
+- Las **recurrencias y sumatorios** son las herramientas principales para calcular $T(n)$.
 - Es esencial considerar **casos extremos y promedio** para una evaluación completa.
 
 ---
@@ -478,3 +609,5 @@ boolean contieneMultiplo(List<Integer> lis, int a) {
 > 💡 **Consejo final:**  
 > Antes de optimizar un algoritmo, mide su rendimiento.  
 > “Premature optimization is the root of all evil.” — Donald Knuth
+
+> Todo el contenido ha sido extraido de apuntes del Departamento de Lenguajes y Sistemas Informáticos
